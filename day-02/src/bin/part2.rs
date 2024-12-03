@@ -197,10 +197,9 @@ mod tests {
         assert_eq!(part2(input), "2");
     }
 
-
     #[bench]
     fn part2_bench(b: &mut Bencher) {
-        let input = include_str!("./input2.txt");;
+        let input = include_str!("./input2.txt");
         b.iter(|| part2(input));
     }
 
