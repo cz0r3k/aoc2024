@@ -14,6 +14,7 @@ mod tests {
 
     #[test]
     fn part1_test() {
-        assert!(true);
+        let input = "";
+        assert_eq!(part1(input), "");
     }
 }
