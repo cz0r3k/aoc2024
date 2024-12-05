@@ -12,7 +12,7 @@ fn part2(input: &str) -> String {
         .map(|line| line.chars().collect::<Vec<_>>())
         .collect::<Vec<_>>();
     let array = Array2D::from_columns(&rows).unwrap();
-    
+
     let mut sum = 0;
     for i in 1..array.column_len() - 1 {
         for j in 1..array.row_len() - 1 {
