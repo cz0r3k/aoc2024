@@ -35,14 +35,12 @@ fn part1(input: &str) -> String {
         .collect::<Vec<_>>();
     let mut map = Array2D::from_rows(&rows).unwrap();
     let start_position = map
-        .as_row_major()
-        .iter()
-        .position(|field| field.is_visited)
+        .enumerate_row_major()
+        .filter(|(_, &field)| field.is_visited)
+        .map(|((y, x), _)| (x as isize, y as isize))
+        .next()
         .unwrap();
-    let mut guard_position = (
-        (start_position % map.row_len()) as isize,
-        (start_position / map.row_len()) as isize,
-    );
+    let mut guard_position = start_position;
     let mut guard_direction = Direction::Up;
     loop {
         map[(guard_position.1 as usize, guard_position.0 as usize)].is_visited = true;

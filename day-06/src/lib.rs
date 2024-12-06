@@ -1,5 +1,20 @@
 use array2d::Array2D;
 
+macro_rules! print_map {
+    ($map:expr) => {
+        $map.as_rows().iter().for_each(|row| {
+        println!(
+            "{}",
+            row.iter()
+                .map(|field| {
+                    Into::<char>::into(field)
+                })
+                .collect::<String>()
+        );
+    });
+    };
+}
+
 #[derive(Copy, Clone)]
 pub struct Field {
     pub is_valid: bool,
@@ -20,17 +35,7 @@ impl Into<char> for &Field {
 
 #[allow(unused)]
 pub fn print_map_field(map: &Array2D<Field>) {
-    map.as_rows().iter().for_each(|row| {
-        println!(
-            "{}",
-            row.iter()
-                .map(|field| {
-                    let ch: char = field.into();
-                    ch
-                })
-                .collect::<String>()
-        );
-    });
+    print_map!(map);
 }
 
 #[derive(Copy, Clone)]
@@ -58,17 +63,7 @@ impl Into<char> for &NewField {
 
 #[allow(unused)]
 pub fn print_map_new_field(map: &Array2D<NewField>) {
-    map.as_rows().iter().for_each(|row| {
-        println!(
-            "{}",
-            row.iter()
-                .map(|field| {
-                    let ch: char = field.into();
-                    ch
-                })
-                .collect::<String>()
-        );
-    });
+    print_map!(map);
 }
 
 pub enum Direction {
