@@ -3,7 +3,7 @@ use array2d::Array2D;
 use day_06::*;
 
 fn main() {
-    let input = include_str!("./input2.txt");
+    let input = include_str!("./input.txt");
     let now = Instant::now();
     let output = part2(input);
     let elapsed = now.elapsed();

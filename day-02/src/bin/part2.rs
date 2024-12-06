@@ -4,7 +4,7 @@
 extern crate test;
 
 fn main() {
-    let input = include_str!("./input2.txt");
+    let input = include_str!("./input.txt");
     let output = part2(input);
     println!("{output}");
 }
@@ -199,13 +199,13 @@ mod tests {
 
     #[bench]
     fn part2_bench(b: &mut Bencher) {
-        let input = include_str!("./input2.txt");
+        let input = include_str!("./input.txt");
         b.iter(|| part2(input));
     }
 
     #[bench]
     fn part2n2_bench(b: &mut Bencher) {
-        let input = include_str!("./input2.txt");
+        let input = include_str!("./input.txt");
         b.iter(|| part2n2(input));
     }
 }
