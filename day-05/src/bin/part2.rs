@@ -73,7 +73,10 @@ fn part2(input: &str) -> String {
                     .and_modify(|(_, v)| *v = next_pages.clone())
                     .or_insert((0, next_pages.clone()));
             });
-            let (&start_node, _) = is_node_has_entrypoint.iter().find(|(_, &val)| !val).unwrap();
+            let (&start_node, _) = is_node_has_entrypoint
+                .iter()
+                .find(|(_, &val)| !val)
+                .unwrap();
             let mut nodes = vec![start_node];
 
             while let Some(node) = nodes.pop() {
@@ -88,7 +91,10 @@ fn part2(input: &str) -> String {
                     });
                 }
             }
-            let (&middle_page, _) = order.iter().find(|(_, &(cost, _))| cost == (update.len() / 2) as u32).unwrap();
+            let (&middle_page, _) = order
+                .iter()
+                .find(|(_, &(cost, _))| cost == (update.len() / 2) as u32)
+                .unwrap();
             middle_page
         })
         .sum::<u32>()

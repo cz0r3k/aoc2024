@@ -3,15 +3,13 @@ use array2d::Array2D;
 macro_rules! print_map {
     ($map:expr) => {
         $map.as_rows().iter().for_each(|row| {
-        println!(
-            "{}",
-            row.iter()
-                .map(|field| {
-                    Into::<char>::into(field)
-                })
-                .collect::<String>()
-        );
-    });
+            println!(
+                "{}",
+                row.iter()
+                    .map(|field| { Into::<char>::into(field) })
+                    .collect::<String>()
+            );
+        });
     };
 }
 

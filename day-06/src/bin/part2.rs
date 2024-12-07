@@ -111,7 +111,7 @@ fn part2(input: &str) -> String {
 
                     let mut new_guard_position = new_position(guard_position, &guard_direction);
                     let mut is_valid = false;
-                    let mut counter:u8 = 0;
+                    let mut counter: u8 = 0;
 
                     while (0..new_map.column_len() as isize).contains(&new_guard_position.0)
                         && (0..new_map.row_len() as isize).contains(&new_guard_position.1)
